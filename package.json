@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MaeganW/Node_Streams#readme",
   "dependencies": {
+    "concat-stream": "^2.0.0",
     "through2": "^3.0.0"
   }
 }
