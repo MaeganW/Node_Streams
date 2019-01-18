@@ -19,8 +19,13 @@ var server = http.createServer(function (req, res){
 		var size = 0;
 		return through(function(buf, enc, next){
 			size += buf.length
-			// this will truncate the stdin if it exceed 20 characters -> will send back an ok when curling but it will not parse the data on the server
-			if(size > 20) next(null, null)
+			if(size > 20){
+				// this will truncate the stdin if it exceed 20 characters -> will send back an ok when curling but it will not parse the data on the server
+				// next(null, null)
+
+				// this will send an error msg
+				res.end('Buffer too big\n')
+			}
 			else next(null, buf)
 		})
 	}
